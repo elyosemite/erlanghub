@@ -3,4 +3,8 @@
 -export([say/0]).
 
 say() ->
-    io:format("Hello, World!~n").
+    io:format("Hello, World!~n"),
+    second().
+
+second() ->
+    io:format("Hello from Erlang!~n").
