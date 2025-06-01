@@ -15,7 +15,7 @@ my_age() ->
     27.
 
 my_name() ->
-    "El Yosemite".
+    utilities:greeting("El Yosemite").
 
 process_credit_card_payment() ->
     {ok, "Success"}.
