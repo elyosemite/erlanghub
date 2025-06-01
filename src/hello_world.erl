@@ -2,7 +2,7 @@
 -module(hello_world).
 
 -export([say/0, my_age/0, my_name/0, process_credit_card_payment/0,
-         process_debit_card_payment/0, my_favorite_colors/0]).
+         process_debit_card_payment/0, my_favorite_colors/0, describe/1]).
 
 say() ->
     io:format("Hello, World!~n"),
@@ -25,3 +25,15 @@ process_debit_card_payment() ->
 
 my_favorite_colors() ->
     ["blue", "green", "white", "black"].
+
+%% pattern match different types
+describe(Value) when is_atom(Value) ->
+    "You gave me an atom.";
+describe(Value) when is_integer(Value) ->
+    "It's an integer.";
+describe(Value) when is_list(Value) ->
+    "It's a list.";
+describe(Value) when is_tuple(Value) ->
+    "A tuple!";
+describe(_) ->
+    "Unknown type.".
