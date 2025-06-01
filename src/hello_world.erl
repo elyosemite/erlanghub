@@ -1,8 +1,8 @@
-%% src/hello_world.erl
 -module(hello_world).
 
 -export([say/0, my_age/0, my_name/0, process_credit_card_payment/0,
-         process_debit_card_payment/0, my_favorite_colors/0, describe/1]).
+         process_debit_card_payment/0, my_favorite_colors/0, describe/1, double_each/1,
+         filter_even/1, square_recursive/1, flatten/1]).
 
 say() ->
     io:format("Hello, World!~n"),
@@ -37,3 +37,25 @@ describe(Value) when is_tuple(Value) ->
     "A tuple!";
 describe(_) ->
     "Unknown type.".
+
+%% 1. Map: Double each number using list comprehension
+double_each(List) ->
+    [X * 2 || X <- List].
+
+%% 2. Filter: Only even numbers using list comprehension
+filter_even(List) ->
+    [X || X <- List, X rem 2 == 0].
+
+%% 3. Recursive: Square each element
+square_recursive([]) ->
+    [];
+square_recursive([H | T]) ->
+    [H * H | square_recursive(T)].
+
+%% 4. Flatten: Turn nested list into flat list
+flatten([]) ->
+    [];
+flatten([H | T]) when is_list(H) ->
+    flatten(H) ++ flatten(T);
+flatten([H | T]) ->
+    [H | flatten(T)].
