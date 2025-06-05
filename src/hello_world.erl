@@ -4,8 +4,12 @@
          process_debit_card_payment/0, my_favorite_colors/0, describe/1, double_each/1,
          filter_even/1, square_recursive/1, flatten/1]).
 
+fall_velocity(Distance) ->
+    math:sqrt(2 * 9.8 * Distance).
+
 say() ->
     io:format("Hello, World!~n"),
+    io:format("Number: ~p~n", [fall_velocity(10)]),
     second().
 
 second() ->
