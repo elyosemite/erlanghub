@@ -2,13 +2,16 @@
 
 -export([say/0, my_age/0, my_name/0, process_credit_card_payment/0,
          process_debit_card_payment/0, my_favorite_colors/0, describe/1, double_each/1,
-         filter_even/1, square_recursive/1, flatten/1, to_string_and_length/1]).
+         filter_even/1, square_recursive/1, flatten/1, to_string_and_length/1, mps_to_mph/1]).
 
 to_string_and_length(Str) when is_list(Str) ->
     {Str, length(Str)};
 
 fall_velocity(Distance) ->
     math:sqrt(2 * 9.8 * Distance).
+
+mps_to_mph(MetersPerSecond) ->
+    MetersPerSecond * 2.23694.
 
 say() ->
     io:format("Hello, World!~n"),
